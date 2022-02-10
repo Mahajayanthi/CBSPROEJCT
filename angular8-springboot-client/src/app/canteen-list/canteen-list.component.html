@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Booked Details</h2>
+    <nav class="navbar navbar-expand-sm btn btn-primary navbar-dark"></nav>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+                <tr>
+          <th>Place</th>
+           <th>CompanyName</th>
+          <th>PhoneNo</th>
+          <th>EmailId</th>
+          <th>StartDate</th>
+          <th>EndDate</th>
+          <th>ShopName</th>
+           <th>Actions</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let canteen of canteens | async">
+          <td>{{canteen.place}}</td>
+           <td>{{canteen.companyName}}</td>
+          <td>{{canteen.phoneNo}}</td>
+          <td>{{canteen.emailId}}</td>
+          <td>{{canteen.startDate}}</td>
+          <td>{{canteen.endDate}}</td>
+          <td>{{canteen.shopName}}</td>
+          <!-- <!-- select shopName:
+          <select> 
+            <option> </option>
+          </select> -->
+          <!-- Select shopName:
+          <select>
+            <option th:each="canteen":${shopName}" th:text="${canteen.shopName}" th:value="${canteen.shopName}"></option> -->
+
+            <!-- </option>
+          </select>  -->
+
+          
+          <td><button (click)="deleteCanteen(canteen.id)" class="btn btn-danger"  style="margin-left: 1px">Delete</button>
+              <button (click)="updateCanteen(canteen.id)" class="btn btn-warning" style="margin-left: 1px">Update</button> 
+             <button (click)="canteenDetails(canteen.id)" class="btn btn-success" style="margin-left: 1px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
